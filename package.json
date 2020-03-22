@@ -1,19 +1,24 @@
 {
   "name": "webpack-html-include-loader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A easy way to include one html file in anohter html file~!",
-  "keywords": ["webpack", "html", "include", "loader"],
+  "keywords": [
+    "webpack",
+    "html",
+    "include",
+    "loader"
+  ],
   "main": "index.js",
   "author": {
-    "name" : "verymuch", 
-    "email" : "gaofeng781x@163.com", 
-    "url" : "https://github.com/verymuch"
+    "name": "verymuch",
+    "email": "gaofeng781x@163.com",
+    "url": "https://github.com/verymuch"
   },
   "homepage": "https://github.com/verymuch/webpack-html-include-loader",
   "repository": "https://github.com/verymuch/webpack-html-include-loader",
   "bugs": {
-    "url" : "https://github.com/verymuch/webpack-html-include-loader/issues",
-    "email" : "gaofeng781x@163.com"
+    "url": "https://github.com/verymuch/webpack-html-include-loader/issues",
+    "email": "gaofeng781x@163.com"
   },
   "dependencies": {
     "loader-utils": "^2.0.0",
