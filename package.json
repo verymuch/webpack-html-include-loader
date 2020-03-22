@@ -1,7 +1,7 @@
 {
   "name": "webpack-html-include-loader",
   "version": "0.1.0",
-  "description": "A easy way to include html file in html file~!",
+  "description": "A easy way to include one html file in anohter html file~!",
   "keywords": ["webpack", "html", "include", "loader"],
   "main": "index.js",
   "author": {
