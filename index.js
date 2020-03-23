@@ -27,7 +27,7 @@ module.exports = function (content) {
   validate(schema, customOptions)
 
   if(!isEmpty(customOptions)) {
-    // 转义自定义选项中需要进行正则转义的内容
+    // 对自定义选项中需要正则转义的内容进行转义
     Object.keys(customOptions).filter(key => key.endsWith('Tag')).forEach((tagKey) => {
       customOptions[tagKey] = escapeForRegExp(customOptions[tagKey])
     })
