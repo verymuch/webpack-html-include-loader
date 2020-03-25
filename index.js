@@ -42,9 +42,9 @@ module.exports = function (content) {
   const pathRelative = this.context
 
   const pathnameREStr = '[-_.a-zA-Z0-9/]+'
-  const argsREStr = '{(\\S+?\\s*:\\s*\\S+?)(,\\s*(\\S+?\\s*:\\s*\\S+?)+?)*}'
+  const argsREStr = '{\\s*(\\s*\\S+?\\s*:\\s*\\S+?)(,\\s*(\\S+?\\s*:\\s*\\S+\\s*?)+?)*}'
   const includeRE = new RegExp(
-    `${includeStartTag}\\s*include\\((['|"])(${pathnameREStr})\\1\\s*(?:,\\s*(${argsREStr}))?\\s*\\)\\s*${includeEndTag}`,
+    `${includeStartTag}\\s*include\\(\\s*(['|"])(${pathnameREStr})\\1\\s*(?:,\\s*(${argsREStr}))?\\s*\\)\\s*${includeEndTag}`,
     'g',
   )
 
