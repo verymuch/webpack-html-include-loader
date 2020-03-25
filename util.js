@@ -28,6 +28,21 @@ function isEmpty(obj) {
   return !obj
 }
 
+// 在上下文中调用eval
+function evalWithApiContext(withContext, apiContext, str) {
+  with(withContext) {
+    let ret
+    try {
+      ret = eval(str);
+    } catch(e) {
+      apiContext.emitError('变量表达式执行错误')
+      apiContext.emitError(e)
+      ret = ''
+    }
+    return ret
+  }
+}
+
 // 替换include
 function replaceIncludeRecursive({
   apiContext, content, includeRE, variableRE, pathRelative, maxIncludes,
@@ -48,7 +63,12 @@ function replaceIncludeRecursive({
 
     // 先替换当前文件内的变量
     const fileContentReplacedVars = fileContent.replace(variableRE, (matchedVar, variable) => {
-      return args[variable] || ''
+      // 如果属性存在，则直接返回，说明为简单变量
+      if(args[variable]) {
+        return args[variable]
+      } 
+      // 否则尝试下执行传入的变量，并返回值
+      return evalWithApiContext(args, apiContext, variable)
     })
 
 
