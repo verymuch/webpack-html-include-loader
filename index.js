@@ -48,7 +48,7 @@ module.exports = function (content) {
     'g',
   )
 
-  const variableNameRE = '\\S+(\\s*\\?\\s*\\S+\\s*:\\s*\\S+\\s*)?'
+  const variableNameRE = '\\S+(\\s*\\?\.+:\.+)?'
   const variableRE = new RegExp(
     `${variableStartTag}\\s*(${variableNameRE})\\s*${variableEndTag}`,
     'g',
