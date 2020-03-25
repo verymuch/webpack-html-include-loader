@@ -43,6 +43,11 @@ function evalWithApiContext(withContext, apiContext, str) {
   }
 }
 
+// 是否是个纯的变量: 不包含条件表达式
+function isPureVar(varName) {
+  return !(varName.includes('?') && varName.includes(':'))
+}
+
 // 替换include
 function replaceIncludeRecursive({
   apiContext, content, includeRE, variableRE, pathRelative, maxIncludes,
@@ -67,6 +72,7 @@ function replaceIncludeRecursive({
       if(args[variable]) {
         return args[variable]
       } 
+      if(isPureVar(variable)) return ''
       // 否则尝试下执行传入的变量，并返回值
       return evalWithApiContext(args, apiContext, variable)
     })
