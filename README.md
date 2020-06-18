@@ -4,6 +4,23 @@
 
 这是一个webpack loader, 可以方便地在一个html文件中包含另一个html文件。并且被包含的HTML变化时，会动态更新。
 
+感兴趣的同学可以看下[开发过程思路详解](https://github.com/verymuch/blog/issues/13)
+
+## 安装与使用
+
+通过以下命令安装loader：`npm i -D webpack-html-include-loader`。
+
+可以结合 `html-webpack-plugin` 与 `html-loader` 一起使用，如下：
+
+```
+// ...
+new HtmlWebpackPlugin({
+  // xxx.html 为文件名，可以参照 html-webpack-plugin 进行设置
+  template: 'html-loader!webpack-html-include-loader!xxx.html',
+  filename: 'xxx.html',
+}),
+```
+
 ## 基础用法
 
 如果你想在某个html文件中包含另一个html文件，如：`header.html`，你可以像下面这样写：
